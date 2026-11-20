@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "accesspilot"
+version = "0.1.0"
+description = "Multi-agent IT asset & access request assistant built with Google ADK, Gemini and AlloyDB"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Dhruthi S" }]
+dependencies = ["google-adk>=1.0"]
+
+[project.optional-dependencies]
+alloydb = ["psycopg[binary]>=3.1"]
+servicenow = ["requests>=2.31"]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["accesspilot*"]
+
+[tool.setuptools.package-data]
+accesspilot = ["db/*.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
